@@ -27,11 +27,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
     GameOptions.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    Ship.cpp \
+    GridItem.cpp
 
 HEADERS += \
     GameOptions.h \
-    MainWindow.h
+    MainWindow.h \
+    Ship.h \
+    GridItem.h
 
 FORMS += \
         mainwindow.ui

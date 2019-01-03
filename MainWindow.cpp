@@ -4,6 +4,7 @@
 #include <QGraphicsTextItem>
 #include <stdlib.h>
 #include <QDebug>
+#include <QFont>
 
 MainWindow::MainWindow(QWidget *parent){
     // set up the screen
@@ -23,7 +24,8 @@ MainWindow::MainWindow(QWidget *parent){
 void MainWindow::displayMainMenu()
 {
     QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Battleship"));
-    QFont titleFont("comic sans", 50);
+    QFont titleFont("comic sans", 70);
+    titleFont.setBold(true);
     titleText->setFont(titleFont);
     int txPos = this->width()/2 - titleText->boundingRect().width()/2;
     int tyPos = 150;
@@ -34,17 +36,26 @@ void MainWindow::displayMainMenu()
     int bxPos = this->width()/2 - startOption->boundingRect().width()/2;
     int byPos = 275;
     startOption->setPos(bxPos,byPos);
-    //connect(startOption,SIGNAL(clicked()),this,SLOT(startGame()));
+    connect(startOption,SIGNAL(clicked()),this,SLOT(startGame()));
     scene->addItem(startOption);
 
     GameOptions* quitOption = new GameOptions(QString("Quit"),200,50,15);
     int qxPos = this->width()/2 - quitOption->boundingRect().width()/2;
     int qyPos = 350;
     quitOption->setPos(qxPos,qyPos);
-    //connect(quitOption,SIGNAL(clicked()),this,SLOT(quitGame()));
+    connect(quitOption,SIGNAL(clicked()),this,SLOT(quitGame()));
     scene->addItem(quitOption);
 }
 
+void MainWindow::startGame()
+{
+    scene->clear();
+}
+
+void MainWindow::quitGame()
+{
+    this->close();
+}
 
 MainWindow::~MainWindow()
 {

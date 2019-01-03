@@ -9,6 +9,9 @@ class GameOptions: public QObject, public QGraphicsRectItem{
 
 public:
     GameOptions(QString name, int tx, int ty, int f, QGraphicsItem* parent=NULL);
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
 
 signals:
     void clicked();
