@@ -50,6 +50,8 @@ void MainWindow::displayMainMenu()
 void MainWindow::startGame()
 {
     scene->clear();
+    grid1 = new Grid();
+    grid1->placeGridItem(200,25,10,10,true);
 }
 
 void MainWindow::quitGame()

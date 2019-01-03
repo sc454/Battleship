@@ -10,7 +10,10 @@ GridItem::GridItem(QGraphicsItem *parent)
     QRectF square(sqPoints);
 
     setRect(square);
-
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::gray);
+    setBrush(brush);
     isPlaced = false;
     isRadar = false;
 }

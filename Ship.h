@@ -16,7 +16,6 @@ public:
     bool getIsPickedUp();
     void setIsPlaced(bool b);
     void setIsPickedUp(bool b);
-
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 private:

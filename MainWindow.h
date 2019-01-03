@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QGraphicsView>
 #include "gameoptions.h"
+#include "Grid.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -19,6 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Grid* grid1;
 
 public slots:
     void startGame();

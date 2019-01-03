@@ -29,13 +29,15 @@ SOURCES += \
     GameOptions.cpp \
     MainWindow.cpp \
     Ship.cpp \
-    GridItem.cpp
+    GridItem.cpp \
+    Grid.cpp
 
 HEADERS += \
     GameOptions.h \
     MainWindow.h \
     Ship.h \
-    GridItem.h
+    GridItem.h \
+    Grid.h
 
 FORMS += \
         mainwindow.ui
