@@ -50,8 +50,19 @@ void MainWindow::displayMainMenu()
 void MainWindow::startGame()
 {
     scene->clear();
-    grid1 = new Grid();
-    grid1->placeGridItem(200,25,10,10,true);
+    playerGrid = new Grid();
+    playerGrid->placeGridItem(345,275,10,10,false);
+    drawShipHolder(745,275,350,350);
+}
+
+void MainWindow::drawShipHolder(int x,int y,int w,int h)
+{
+    QGraphicsRectItem* panel = new QGraphicsRectItem(x,y,w,h);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::darkCyan);
+    panel->setBrush(brush);
+    scene->addItem(panel);
 }
 
 void MainWindow::quitGame()

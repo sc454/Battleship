@@ -6,13 +6,11 @@ extern MainWindow* w;
 GridItem::GridItem(QGraphicsItem *parent)
 {
     QRect sqPoints = QRect(QPoint(0,0),QPoint(35,35));
-
     QRectF square(sqPoints);
-
     setRect(square);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::gray);
+    brush.setColor(Qt::darkCyan);
     setBrush(brush);
     isPlaced = false;
     isRadar = false;

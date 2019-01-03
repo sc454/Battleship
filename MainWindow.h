@@ -16,12 +16,14 @@ class MainWindow: public QGraphicsView{
 public:
     MainWindow(QWidget* parent=nullptr);
     void displayMainMenu();
+    void drawShipHolder(int x,int y,int w,int h);
     ~MainWindow();
     QGraphicsScene* scene;
 
 private:
     Ui::MainWindow *ui;
-    Grid* grid1;
+    Grid* playerGrid;
+    Grid* shipHolderGrid; // Area to drag ships from
 
 public slots:
     void startGame();
