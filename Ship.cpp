@@ -1,5 +1,8 @@
 #include "Ship.h"
+#include "mainwindow.h"
+#include <QDebug>
 
+extern MainWindow* w;
 Ship::Ship(QString n, int l,QGraphicsItem* parent)
 {
     name = n;
@@ -50,5 +53,24 @@ void Ship::setIsPickedUp(bool b)
 
 void Ship::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    if(!w->getLocked()){
+        if(getIsPickedUp() == false){
+            w->pickUpShip(this);
+            this->setIsPickedUp(true);
+            this->setIsPlaced(false);
+        }else{
+            int tx = (int)(this->pos().rx()-345)/35;
+            int ty = (int)(this->pos().ry()-275)/35;
 
+            if(tx >= 0 && tx <= 9 && ty >= 0 && ty <= 9){
+                int oy = this->rect().height();
+                int ox = this->rect().width();
+                if((ox < oy && this->getLength()+ty <= 10) || (ox > oy && this->getLength()+tx <= 10)){
+                    w->placeShip(tx,ty);
+                }
+            }
+
+            qDebug() << QString("mousePressEvent") << tx << ty;
+        }
+    }
 }
